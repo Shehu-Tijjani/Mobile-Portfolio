@@ -30,7 +30,7 @@ header {
 header .container {
     display: flex;
     flex-direction: column;
-    justify-content space-between;
+    justify-content: space-between;
     padding-top: 100px;
     padding-bottom: 0;
     min-height: fit-content;

@@ -33,3 +33,8 @@ nav.addEventListener("click", e => {
         terminateNavList()
     }
 });
+
+// Doenload resume
+
+a.addEventListener('click', function() {
+})

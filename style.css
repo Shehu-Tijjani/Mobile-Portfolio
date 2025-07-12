@@ -499,7 +499,6 @@ hero h1 span {
     color: #fff;
     text-decoration: none;
     background: rgba(235, 177, 103, .1);
-    background: rgba(256, 256, 256, 0.1);
     backdrop-filter: blur(10px);
 }
 

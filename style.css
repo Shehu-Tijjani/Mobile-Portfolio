@@ -42,22 +42,18 @@ body {
 }
 
 .hire-btn .arrow-right {
-  height: 16.5px;
+  height: 14.5px;
   width: 11.5px;
   display: block;
-  /* margin-left: 10px; */
   transition: all 0.3s ease;
 }
 
 .hire-btn .arrow-right svg {
-  height: 100%;
-  width: 100%;
   fill: rgb(238, 225, 209);
-  transform: rotate(180deg);
 }
 
 .hire-btn .arrow-right svg * {
-  transform: translate(-6px, -4px);
+  transform: translate(-6px, -5px);
 }
 
 .bg-txts {

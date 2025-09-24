@@ -12,6 +12,7 @@ html {
   font-family: "Geist", Sans-Serif;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+  line-height: 1.7;
 }
 
 body {
@@ -20,13 +21,43 @@ body {
 }
 
 .hire-btn {
-  display: inline-block;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
   color: rgb(238, 225, 209);
+  background: black;
+  padding: 13px 25px;
+  border-radius: 50px;
+  margin: 2px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  transition: all 0.3s ease;
 }
 
 .hire-btn:hover {
   transform: scale(0.9);
+}
+
+.hire-btn .arrow-right {
+  height: 16.5px;
+  width: 11.5px;
+  display: block;
+  /* margin-left: 10px; */
+  transition: all 0.3s ease;
+}
+
+.hire-btn .arrow-right svg {
+  height: 100%;
+  width: 100%;
+  fill: rgb(238, 225, 209);
+  transform: rotate(180deg);
+}
+
+.hire-btn .arrow-right svg * {
+  transform: translate(-6px, -4px);
 }
 
 .bg-txts {
@@ -132,14 +163,19 @@ nav {
   align-items: center;
   gap: 20px;
   list-style: none;
-  margin-right: 17px;
+  margin-right: 14px;
 }
 
 .nav-lists a {
   color: black;
   text-decoration: none;
   display: block;
-  font-weight: 600;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-lists a:hover {
+  color: #fcf0e2;
 }
 
 @media (max-width: 500px) {
@@ -159,13 +195,14 @@ nav {
     background: linear-gradient(to right, #ebb167 50%, #fdf8f2);
     border-radius: 10px;
     border-top-right-radius: none;
-    border: 2px solid rgba(256, 256, 256, 0.5);
+    border: 1px solid rgba(256, 256, 256, 0.5);
     transition: all 0.5s ease;
     margin-right: 0;
   }
 
   .show-nav-lists {
-    right: -4px;
+    right: -1px;
+    font-size: 16px;
   }
 
   .nav-lists li:not(:last-child) {
@@ -175,18 +212,9 @@ nav {
   .nav-lists a {
     display: block;
     padding: 15px 40px 15px 0;
+    transition: all 0.3s ease;
+    font-weight: 400;
   }
-}
-
-.hire-btn {
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  color: #e3e3e3;
-  background: black;
-  padding: 13px 35px;
-  border-radius: 50px;
-  margin: 2px 0;
 }
 
 .hamburger-menu {
@@ -212,6 +240,12 @@ nav {
   transition: all 0.4s ease;
   visibility: visible;
   opacity: 1;
+  cursor: pointer;
+}
+
+.hamburger:hover,
+.cancel:hover {
+  transform: translateY(-50%) scaleY(1.2);
 }
 
 .cancel {
@@ -245,19 +279,58 @@ nav {
 }
 
 .hero small {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 16px;
+  padding: 3px 20px;
+  background: #00000021;
+  border: 0.5px solid #e3e3e339;
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
 }
 
-.hero .intro {
-  margin-bottom: 5px;
-  font-size: 25px;
+.hero .name {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 3px solid black;
+  background-image: linear-gradient(to right, #efc188 50%, #fff);
+
+  /* max-width: 400px; */
+}
+
+@media (max-width: 1000px) {
+  .hero .name {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero .name {
+    font-size: 54px;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero .name {
+    font-size: 45px;
+    font-weight: 500;
+  }
 }
 
 .hero .role {
   font-style: none;
   color: #e3e3e3;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 1000px) {
+  .hero .role {
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -268,33 +341,6 @@ nav {
 
 .hero .role span {
   color: rgb(241, 190, 123);
-}
-
-.hero .name {
-  font-size: 54px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 25px;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 3px solid black;
-  background-image: linear-gradient(to right, #efc188 50%, #fff);
-
-  /* max-width: 400px; */
-}
-
-@media (max-width: 700px) {
-  .hero .name {
-    max-width: 350px;
-  }
-}
-
-@media (max-width: 500px) {
-  .hero .name {
-    font-size: 45px;
-    font-weight: 500;
-    margin-bottom: 30px;
-  }
 }
 
 .hero .resume__wrapper {
@@ -351,6 +397,11 @@ nav {
   display: inline-block;
   margin-left: 10px;
   animation: suspend 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.hero .resume:hover .resume-arrow {
+  margin-left: 15px;
 }
 
 @keyframes suspend {
@@ -496,7 +547,7 @@ nav {
 }
 
 .about .flex-box .typography {
-  flex: 1 1 300px;
+  flex: 1 1 296px;
 }
 
 .about .flex-box .typography h1 {
@@ -514,26 +565,36 @@ nav {
 
 .about .hire-btn {
   margin-top: 25px;
-  box-shadow: 0 0px 10px 5px rgba(0, 0, 0, 0.107);
-  /* transition: all 0.3s ease-in; */
+  justify-self: start;
+  color: rgb(238, 225, 209);
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.123);
+  transition: gap 0.3s ease, box-shadow 0.6s ease;
 }
 
 .about .hire-btn:hover {
   box-shadow: none;
+  transform: scale(1);
+  gap: 17px;
 }
 
 .projects {
   height: fit-content;
   position: relative;
+  background-color: rgb(242, 238, 234);
 }
 
 .projects h1 {
   margin-bottom: 70px;
 }
 
+@media (max-width: 1000px) {
+  .projects h1 {
+    margin-bottom: 40px;
+  }
+}
+
 .project-wrapper {
   display: flex;
-  justify-content: space-evenly;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -545,8 +606,10 @@ nav {
   padding: 5px;
   border-radius: 12px;
   background: #fff;
+  background: rgb(238, 225, 209);
   flex-grow: 1;
   max-width: 360px;
+  box-shadow: 0 10px 14px 2px rgba(0, 0, 0, 0.101);
 }
 
 .project-wrapper figure .img-wrapper {
@@ -555,12 +618,10 @@ nav {
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 14px 2px rgba(0, 0, 0, 0.2);
-}
-
-.project-wrapper figure .img-wrapper img {
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 10px 14px 2px rgba(0, 0, 0, 0.114);
+  z-index: 2;
+  overflow: hidden;
+  transition: all 0.5s ease;
 }
 
 .project-wrapper figure .img-wrapper::before {
@@ -573,9 +634,22 @@ nav {
   transform: translate(50%, 50%);
   background-image: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.337) 10%,
     transparent
   );
+}
+
+.project-wrapper figure .img-wrapper:hover {
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.project-wrapper figure .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.5s ease;
 }
 
 .project-wrapper figure .img-wrapper a {
@@ -610,6 +684,7 @@ nav {
 .project-wrapper figure .bottom h3 {
   margin-bottom: 10px;
   color: #565555;
+  color: #000;
   font-weight: 500;
   line-height: 1.3;
 }
@@ -618,25 +693,45 @@ nav {
   margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
-  opacity: 0.6;
+  opacity: 0.7;
+  opacity: 1;
   color: #ebb169;
 }
 
 .project-wrapper figure .bottom .desc {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 736px) {
   .about .flex-box .typography {
     text-align: center;
+    max-width: 500px;
+    margin: auto;
   }
 
   .about .flex-box .typography h1 {
     text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .about .hire-btn {
+    justify-self: center;
   }
 }
 @media screen and (max-width: 450px) {
+  .about .flex-box {
+    gap: 25px;
+  }
+
   .about .flex-box .box-1 {
     padding: 0 40px;
+  }
+
+  .about .flex-box .typography h1 {
+    margin-bottom: 10px;
+  }
+
+  .about .flex-box .typography p {
+    line-height: 1.5;
   }
 }
